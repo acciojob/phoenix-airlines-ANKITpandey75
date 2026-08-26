@@ -11,7 +11,7 @@ const flights = [
 ];
 
 function Layout({ children }) { return <><header><Link to="/">PHOENIX <span>AIRLINES</span></Link><nav><Link to="/flight-search">Book a flight</Link></nav></header>{children}<footer>© 2026 Phoenix Airlines · Fly beyond expectations</footer></>; }
-function Home() { return <main className="hero"><div><p className="eyebrow">WELCOME ABOARD</p><h1>The world is<br/>waiting for you.</h1><p className="lead">Find your next journey with Phoenix Airlines. Simple bookings, exceptional flights.</p><Link className="primary" to="/flight-search">Search flights <b>→</b></Link></div><aside className="hero-card"><p>YOUR NEXT ADVENTURE</p><strong>Fly with confidence</strong><small>Comfort, care, and a little more sky.</small></aside></main>; }
+function Home() { const navigate = useNavigate(); return <main className="hero"><div><p className="eyebrow">WELCOME ABOARD</p><h1>Welcome to Flight Booking App</h1><p className="lead">Find your next journey with Phoenix Airlines. Simple bookings, exceptional flights.</p><button className="primary" type="button" onClick={() => navigate('/flight-search')}>SEARCH FLIGHTS HERE <b>→</b></button></div><aside className="hero-card"><p>YOUR NEXT ADVENTURE</p><strong>Fly with confidence</strong><small>Comfort, care, and a little more sky.</small></aside></main>; }
 function Search() {
   const dispatch = useDispatch(), navigate = useNavigate(); const saved = useSelector(s => s.flight.search);
   const [form, setForm] = useState(saved), [errors, setErrors] = useState({}), [searched, setSearched] = useState(false);
